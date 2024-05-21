@@ -1,0 +1,430 @@
+{% extends "components/#master.html" %} 
+{% load static %} 
+
+{% block title%}Lido Galleries{% endblock title %} 
+
+{% block content %}
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<section class="galleries">
+<div class="glass">
+    {% include 'components/leaves.html' %}
+  <div class="lx-portfolio-area section-padding-80">
+    <div class="container-fluid" data-aos="zoom-in" data-aos-duration="3000">
+      <br />
+      <br />
+      <div class="row text-center">
+        <div class="title-box">
+          <div class="sub-title" style="color: var(--txtprimary)">
+            Discover the Lido Experience
+          </div>
+          <h1 class="sec-title">Lido Galleries</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="lx-projects-menu">
+            <div class="portfolio-menu text-center">
+              <button class="btn active" data-filter="*">All</button>
+              <button class="btn" data-filter=".cafe">Cafe</button>
+              <button class="btn" data-filter=".daytour">Day Tour</button>
+              <button class="btn" data-filter=".nighttour">Night Tour</button>
+              <button class="btn" data-filter=".rooms">Rooms</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row lx-portfolio">
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item cafe mb-30 wow fadeInUp"
+          data-wow-delay="100ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Cafe1.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Cafe1.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item cafe mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Cafe2.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Cafe2.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item cafe mb-30 wow fadeInUp"
+          data-wow-delay="500ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Cafe3.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Cafe3.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item cafe mb-30 wow fadeInUp"
+          data-wow-delay="700ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Cafe4.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Cafe4.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item cafe mb-30 wow fadeInUp"
+          data-wow-delay="100ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Cafe5.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Cafe5.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Dawn1.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Dawn1.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Dawn2.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Dawn2.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Day1.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Day1.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Day2.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Day2.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Day3.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Day3.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Day4.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Day4.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Day5.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Day5.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item daytour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Day6.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Day6.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Sunset1.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Sunset1.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Sunset2.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Sunset2.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Sunset3.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Sunset3.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Sunset4.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Sunset4.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Sunset5.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Sunset5.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Night1.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Night1.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Night2.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Night2.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Night3.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Night3.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Night4.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Night4.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-sm-6 col-lg-3 single_gallery_item nighttour mb-30 wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="single-portfolio-content">
+            <img src="{% static 'media/img/gallery/Night5.jpg' %}" alt="" />
+            <div class="hover-content">
+              <a
+                href="{% static 'media/img/gallery/Night5.jpg' %}"
+                class="portfolio-img"
+                >+</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+</section>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+{% endblock %}

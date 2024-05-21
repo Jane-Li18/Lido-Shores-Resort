@@ -1,0 +1,82 @@
+<section class="banner-two-section" style="background-image: url(assets/images/main-slider/banner-4.jpg);">
+
+      <div class="booking-form-section style-two">
+          <div class="auto-container">
+              <!--START FORM-->
+      <form method="get">    
+        <div class="row">                    
+            <div class="col-lg-4 col-md-6 booking-form-column">
+                <!--check in/out-->
+                <div class="">
+                    <div id="nd_booking_open_calendar_from" class="">
+                        <h4 class="nd_booking_date_label">Check-In</h4>
+                        <div class="flex-box">
+                            <h1 id="nd_booking_date_number_from_front" class="nd_booking_date_number_from_front">01</h1>
+                            <h6 id="nd_booking_date_month_from_front" class="nd_booking_date_month_from_front">Jan</h6>
+                        </div>
+                    </div>
+                    <input type="hidden" id="nd_booking_date_month_from" class="">
+                    <input type="hidden" id="nd_booking_date_number_from" class="">
+                    <input placeholder="Check In" class="opacity-0" type="text" name="form-name" id="nd_booking_archive_form_date_range_from" value="" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 booking-form-column">
+                <div class="">        
+                    <div id="nd_booking_open_calendar_to" class="">
+                        <h4 class="nd_booking_date_label">Check-Out</h4>
+                        <div class="flex-box">
+                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_date_number_from_front">04</h1>
+                            <h6 id="nd_booking_date_month_to_front" class="nd_booking_date_month_from_front">Feb</h6>
+                        </div>
+                    </div>        
+                    <input type="hidden" id="nd_booking_date_month_to" class="">
+                    <input type="hidden" id="nd_booking_date_number_to" class="">
+                    <input placeholder="Check Out" class="opacity-0" type="text" name="form-name" id="nd_booking_archive_form_date_range_to" value="" />                            
+                </div>  
+            </div>
+            <div class="col-lg-4 col-md-6 booking-form-column">
+                <div class="nd_booking_width_100_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left  nd_booking_box_sizing_border_box">
+                    <h4 class="nd_booking_date_label">Rooms / Guests</h4>
+                    <div class="room-opt">
+                        <select>
+                            <option data-display="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <span class="nd_booking_date_month_from_front" style="margin-right: 20px;">Room</span>
+                        <select>
+                            <option  data-display="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                        </select>
+                        <span class="nd_booking_date_month_from_front">Guest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12 co-md-12 booking-form-column">
+                <div class="booking-form-submit-btn">
+                    {% comment %} <div class="booking-form-submit-btn-label">Book Now!</div> {% endcomment %}
+                    <button class="btn-one">Check Availability + <span></span></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--END FORM-->
+          </div>
+      </div>
+
+</section>

@@ -1,0 +1,237 @@
+{% load static %}
+<nav id="sidebar" class="sidebar js-sidebar">
+  <div class="sidebar-content js-simplebar" data-simplebar="init">
+    <div class="simplebar-wrapper" style="margin: 0px">
+      <div class="simplebar-height-auto-observer-wrapper">
+        <div class="simplebar-height-auto-observer"></div>
+      </div>
+      <div class="simplebar-mask">
+        <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+          <div
+            class="simplebar-content-wrapper"
+            tabindex="0"
+            role="region"
+            aria-label="scrollable content"
+            style="height: 100%; overflow: hidden scroll"
+          >
+            <div class="simplebar-content" style="padding: 500px">
+              <ul class="sidebar-nav">
+                <li class="sidebar-header">
+                  <a href="{% url 'lido-home' %}"
+                    ><img
+                      src="{% static 'media/img/components/logo_full.png' %}"
+                      alt="logo"
+                      class="w-100"
+                  /></a>
+                </li>
+
+                <li class="sidebar-header">General</li>
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="{% url 'lido-home' %}">
+                    <i class="ri-home-5-line align-middle icons"></i>
+                    <span class="align-middle">Home</span>
+                  </a>
+                </li>
+
+                {% comment %}
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#">
+                    <i class="ri-bookmark-3-fill"></i>
+                    <span class="align-middle">Book Now</span>
+                  </a>
+                </li>
+                {% endcomment %}
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="{% url 'roomrates' %}">
+                    <i class="ri-price-tag-3-line"></i>
+                    <span class="align-middle">Room Rates</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#">
+                    <i class="ri-cup-line"></i>
+                    <span class="align-middle">Cafe & Updates</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="{% url 'lido-gallery' %}">
+                    <i class="ri-image-line"></i>
+                    <span class="align-middle">Gallery</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-header">Library</li>
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#">
+                    <i class="ri-history-line"></i>
+                    <span class="align-middle">History</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#">
+                    <i class="ri-user-heart-line"></i>
+                    <span class="align-middle">Favorites</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-header">Settings</li>
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#">
+                    <i class="ri-phone-line"></i>
+                    <span class="align-middle">About Us</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="#">
+                    <i class="ri-sun-cloudy-line"></i>
+                    <span class="align-middle">Weather</span>
+                  </a>
+                </li>
+
+                <li class="sidebar-item theme" id="themeButton">
+                  <a
+                    class="sidebar-link d-flex align-items-center"
+                    href="javascript:void(0)"
+                  >
+                    <div class="text-middle">
+                      <i class="theme-icon" id="lightIcon">
+                        <i class="ri-moon-fill"></i>
+                      </i>
+
+                      <i class="theme-icon" id="darkIcon">
+                        <i class="ri-sun-line"></i>
+                      </i>
+
+                      <i class="theme-icon" id="solarIcon">
+                        <i class="ri-lightbulb-line"></i>
+                      </i>
+                    </div>
+                    <span class="me-0">Theme</span>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="sidebar-user">
+                <div class="d-flex justify-content-center">
+                  <div class="flex-shrink-0">
+                    <img
+                      src="{% static 'media/img/components/default-guest-active.png' %}"
+                      class="avatar img-fluid rounded me-1"
+                      alt="Guest"
+                    />
+                  </div>
+                  <div class="flex-grow-1 ps-2">
+                    <a
+                      class="sidebar-user-title dropdown-toggle"
+                      href="#"
+                      data-bs-toggle="dropdown"
+                    >
+                      SLee Jabonillo
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-start">
+                      <a class="dropdown-item" href="#"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="feather feather-user align-middle me-1"
+                        >
+                          <path
+                            d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                          ></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Profile</a
+                      >
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="feather feather-settings align-middle me-1"
+                        >
+                          <circle cx="12" cy="12" r="3"></circle>
+                          <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                          ></path>
+                        </svg>
+                        Settings &amp; Privacy</a
+                      >
+                      <a class="dropdown-item" href="#"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="feather feather-help-circle align-middle me-1"
+                        >
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        Help Center</a
+                      >
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="{% url 'login' %}">Log out</a>
+                    </div>
+
+                    <div class="sidebar-user-subtitle">
+                      shanelee.jabonillo@gmail.com
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="simplebar-placeholder"
+        style="width: auto; height: 1320px"
+      ></div>
+    </div>
+    <div
+      class="simplebar-track simplebar-horizontal"
+      style="visibility: hidden"
+    >
+      <div class="simplebar-scrollbar" style="width: 0px; display: none"></div>
+    </div>
+    <div class="simplebar-track simplebar-vertical" style="visibility: visible">
+      <div
+        class="simplebar-scrollbar"
+        style="
+          height: 387px;
+          transform: translate3d(0px, 0px, 0px);
+          display: block;
+        "
+      ></div>
+    </div>
+  </div>
+</nav>

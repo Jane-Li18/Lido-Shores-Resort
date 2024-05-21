@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% comment %} Website Icon Link {% endcomment %}
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'media/img/components/Logo.png' %}"
+    />
+
+    {% comment %} Remixicons Link {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
+      crossorigin=""
+    />
+
+    {% comment %} Bootstrap Link {% endcomment %}
+    <link href="{% static 'css/assets/bootstrap.css' %}" rel="stylesheet" />
+
+    {% comment %} FontAwesome Pro Link {% endcomment %}
+    <link
+      href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.2-web/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    {% comment %} External CSS {% endcomment %}
+    <link href="{% static 'css/components/@supreme.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/components/#content.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/components/style.css' %}" rel="stylesheet" />
+
+    <link href="{% static 'css/3-2gallery.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/magnific-popup.css' %}" rel="stylesheet" />
+
+    <link href="{% static 'css/assets/owl.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/responsiveness.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/rtl.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/nice-select.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/elpath.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/jquery.fancybox.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/jquery-ui-1.9.2.custom.min.css' %}" rel="stylesheet" />
+
+    <link href="{% static 'css/components/#footer.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    
+    <div class="wrapper">
+      {% include "components/#sidebar.html" %}
+
+      <div class="main" style="z-index: 1">
+        {% include "components/#header.html" %}
+
+        {% block content %} 
+        {% endblock content %} 
+
+        {% include "components/#footer.html" %}
+
+      </div>
+
+      {% comment %} Scroll Top Button {% endcomment %}
+      <a href="#" id="chatbot"><i class="ri-customer-service-2-fill"></i></a>
+      <a href="#" id="upscroll"><i class="ri-arrow-up-line"></i></a>
+    </div>
+  </body>
+
+  {% comment %} External Javascript File Link {% endcomment %}
+  <script src="{% static 'js/components/#master.js' %}"></script>
+  <script src="{% static 'js/components/@content.js' %}"></script>
+  <script src="{% static 'js/assets/app.js' %}"></script>
+  <script src="{% static 'js/#roomrates.js' %}"></script>
+
+  <script src="{% static 'js/assets/jquery.js' %}"></script>
+  <script src="{% static 'js/assets/jquery-ui-1.9.2.custom.min.js '%}"></script>
+  <script src="{% static 'js/assets/booking-form.js' %}"></script>
+  <script src="{% static 'js/assets/jquery.fancybox.js' %}"></script>
+  <script src="{% static 'js/assets/isotope.js' %}"></script>
+  <script src="{% static 'js/assets/owl.js' %}"></script>
+  <script src="{% static 'js/assets/wow.js' %}"></script>
+  <script src="{% static 'js/assets/TweenMax.min.js' %}"></script>
+  <script src="{% static 'js/assets/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'js/assets/parallax-scroll.js' %}"></script>
+  <script src="{% static 'js/assets/appear.js' %}"></script>
+  <script src="{% static 'js/assets/swiper.min.js' %}"></script>
+  <script src="{% static 'js/assets/script.js' %}"></script>
+
+  <script src="{% static 'js/assets/popper.js' %}"></script>
+  <script src="{% static 'js/assets/lxbundle.js' %}"></script>
+  <script src="{% static 'js/assets/active.js' %}"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Get the current URL path
+      var path = window.location.pathname;
+      
+      // Remove trailing slash if present
+      path = path.replace(/\/$/, "");
+      
+      // Find the sidebar link corresponding to the current URL
+      var $sidebarLink = $('a[href="' + path + '"]');
+      
+      // Remove active class from all sidebar items
+      $('.sidebar-item').removeClass('active');
+      
+      // Add the 'active' class to the parent sidebar item
+      $sidebarLink.closest('.sidebar-item').addClass('active');
+      
+      // Special case for the "Home" link to retain active state and disable if already active
+      if (path === '/' || path === '') {
+        $('.sidebar-item.active').removeClass('active');
+        $('.sidebar-item:has(a[href="/"])').addClass('active');
+        $('.sidebar-item:has(a[href="/"]) a').removeAttr('href').css('cursor', 'default');
+      } else {
+        // Disable link for the currently active page
+        $('.sidebar-item.active a').removeAttr('href').css('cursor', 'default');
+      }
+    
+      // Check if the current URL corresponds to the Room Rates page
+      if (path.includes("roomrates")) {
+        // Add active state to the Room Rates link
+        $('.sidebar-item:has(a[href*="roomrates"])').addClass('active');
+        // Disable link for the Room Rates page
+        $('.sidebar-item:has(a[href*="roomrates"]) a').removeAttr('href').css('cursor', 'default');
+      }
+    });
+  </script>
+</html>

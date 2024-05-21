@@ -1,0 +1,312 @@
+{% load static %}
+<div class="sticky-nav">
+<nav class="navbar navbar-expand navbar-bg">
+  <a class="sidebar-toggle js-sidebar-toggle">
+    <i class="hamburger align-self-center"></i>
+  </a>
+
+  {% comment %} <form class="d-none d-sm-inline-block">
+    <div class="input-group input-group-navbar">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search…"
+        aria-label="Search"
+      />
+      <button class="btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-search align-middle"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+  </form> {% endcomment %}
+
+  <ul class="navbar-nav d-none d-lg-flex">
+    <li class="nav-item px-2 dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="megaDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Lido Menu <i class="ri-arrow-down-s-line"></i>
+      </a>
+      <div
+        class="dropdown-menu dropdown-menu-start dropdown-mega"
+        aria-labelledby="megaDropdown"
+      >
+        <div class="d-md-flex align-items-start justify-content-start">
+          <div class="dropdown-mega-list">
+            <div class="dropdown-header">Amenities</div>
+            <a class="dropdown-item" href="#">Sariaya Beach</a>
+            <a class="dropdown-item" href="#">Bilaran Sand Bar</a>
+            <a class="dropdown-item" href="#">Kamay ni Hesus</a>
+          </div>
+          <div class="dropdown-mega-list">
+            <div class="dropdown-header">Rooms</div>
+            <a class="dropdown-item" href="#">Casita</a>
+            <a class="dropdown-item" href="#">Villa</a>
+            <a class="dropdown-item" href="#">One Bedroom Villa</a>
+            <a class="dropdown-item" href="#">Cove</a>
+            <a class="dropdown-item" href="#">Hut</a>
+          </div>
+          <div class="dropdown-mega-list">
+            <div class="dropdown-header">General</div>
+            <a class="dropdown-item" href="#">Home</a>
+            <a class="dropdown-item" href="#">Bookings</a>
+            <a class="dropdown-item" href="#">Room Rates</a>
+            <a class="dropdown-item" href="#">Cafe</a>
+            <a class="dropdown-item" href="#">Gallery</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="navbar-collapse collapse">
+    <ul class="navbar-nav navbar-align">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-icon dropdown-toggle"
+          href="#"
+          id="messagesDropdown"
+          data-bs-toggle="dropdown"
+        >
+          <div class="position-relative">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-bell align-middle"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="indicator">1</span>
+          </div>
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+          aria-labelledby="messagesDropdown"
+        >
+          <div class="dropdown-menu-header">
+            <div class="position-relative">Notifications</div>
+          </div>
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img
+                    src="{% static 'media/img/components/logo.png' %}"
+                    class="avatar img-fluid rounded-circle"
+                    alt="Lido Team"
+                  />
+                </div>
+                <div class="col-10 ps-2">
+                  <div class="text-dark">Lido Team</div>
+                  <div class="text-muted small mt-1">
+                    Welcome to Lido Shores Resort! Thank you...
+                  </div>
+                  <div class="text-muted small mt-1">15m ago</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="dropdown-menu-footer">
+            <a href="#" class="text-muted">Show all notifications</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-flag dropdown-toggle"
+          href="#"
+          id="languageDropdown"
+          data-bs-toggle="dropdown"
+        >
+          <img src="{% static 'media/img/flags/us.png '%}" alt="English" />
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="languageDropdown"
+        >
+          <a class="dropdown-item" href="#">
+            <img
+              src="{% static 'media/img/flags/us.png '%}"
+              alt="English"
+              width="20"
+              class="align-middle me-1"
+            />
+            <span class="align-middle">English</span>
+          </a>
+          <a class="dropdown-item" href="#">
+            <img
+              src="{% static 'media/img/flags/philippines.png '%}"
+              alt="Spanish"
+              width="20"
+              class="align-middle me-1"
+            />
+            <span class="align-middle">Filipino</span>
+          </a>
+          <a class="dropdown-item" href="#">
+            <img
+              src="{% static 'media/img/flags/spain.png '%}"
+              alt="Russian"
+              width="20"
+              class="align-middle me-1"
+            />
+            <span class="align-middle">Spanish</span>
+          </a>
+          <a class="dropdown-item" href="#">
+            <img
+              src="{% static 'media/img/flags/china.png '%}"
+              alt="German"
+              width="20"
+              class="align-middle me-1"
+            />
+            <span class="align-middle">Chinese</span>
+          </a>
+          <a class="dropdown-item" href="#">
+            <img
+              src="{% static 'media/img/flags/japan.png '%}"
+              alt="German"
+              width="20"
+              class="align-middle me-1"
+            />
+            <span class="align-middle">Japanese</span>
+          </a>
+          <a class="dropdown-item" href="#">
+            <img
+              src="{% static 'media/img/flags/southkorea.png '%}"
+              alt="German"
+              width="20"
+              class="align-middle me-1"
+            />
+            <span class="align-middle">Korean</span>
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-icon js-fullscreen d-none d-lg-block" href="#">
+          <div class="position-relative">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-maximize align-middle"
+            >
+              <path
+                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+              ></path>
+            </svg>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-icon pe-md-0 dropdown-toggle"
+          href="#"
+          data-bs-toggle="dropdown"
+        >
+          <img
+            src="{% static 'media/img/components/default-guest-active.png' %}"
+            class="avatar img-fluid rounded"
+            alt=""
+          />
+        </a>
+        <div class="dropdown-menu dropdown-menu-end">
+          <a class="dropdown-item" href="/pages-profile"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-user align-middle me-1"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Profile</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/pages-settings"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-settings align-middle me-1"
+            >
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+              ></path>
+            </svg>
+            Settings &amp; Privacy</a
+          >
+          <a class="dropdown-item" href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-help-circle align-middle me-1"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Help Center</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>

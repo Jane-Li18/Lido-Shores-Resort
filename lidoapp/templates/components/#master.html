@@ -1,0 +1,12 @@
+{% extends "components/@supreme.html" %}
+{% load static %}
+
+{% block title %}Lido Shores Resort | Sariaya{% endblock %}
+
+{% block content %}
+    {% if block.super %}
+        {{ block.super }}
+    {% else %}
+        {% include "components/#content.html" %}
+    {% endif %}
+{% endblock %}

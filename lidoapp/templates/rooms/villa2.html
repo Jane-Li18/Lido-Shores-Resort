@@ -1,0 +1,309 @@
+{% extends "components/#master.html" %} 
+{% load static %} 
+{% block title %} Villa 2 | Lido Shores Rooms {% endblock title %} 
+
+{% block content %}
+
+<head>
+  <link href="{% static 'css/rooms/allrooms.css' %}" rel="stylesheet" />
+</head>
+
+<!-- Page Title -->
+<section class="page-title-one style-three">
+  <div class="page-title-one-bg"></div>
+  <div class="auto-container" style="background: transparent">
+    <iframe
+      width="100%"
+      height="500px"
+      allowfullscreen="true"
+      allow="accelerometer; magnetometer; gyroscope"
+      style="
+        display: block;
+        padding-bottom: 0px;
+        margin: 5px auto;
+        border: 0 none;
+        max-width: 2500px;
+        border-radius: 8px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+          0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11),
+          0 8px 16px rgba(0, 0, 0, 0.11);
+      "
+      src="https://panoraven.com/en/embed/NCWMRxYFqu"
+    ></iframe>
+    <div
+      class="page-title-one-content"
+      style="margin-top: 25px; text-align: center"
+    >
+      <h1
+        class="page-title"
+        style="
+          font-size: 45px;
+          font-weight: 100;
+          line-height: 30px;
+          margin-top: 50px;
+        "
+      >
+        Villa 2 <i class="fa-thin fa-360-degrees" style="font-size: 30px"></i>
+      </h1>
+      <div
+        class="page-title-one-desc"
+        style="
+          background: transparent;
+          color: var(--txtprimary);
+          margin-bottom: 50px;
+        "
+      >
+        Villa 2 provides a luxurious escape with a queen-size bed, sofa, and
+        pullout bed, ideal for couples and accommodating up to four guests.
+        Enjoy modern comforts such as air conditioning for a truly relaxing
+        stay.
+      </div>
+
+      <div class="page-title-one-bread-crumb-area style-two">
+        <ul
+          class="page-title-one-bread-crumb"
+          style="background: var(--bgsecondary); color: var(--txttertiary)"
+        >
+          <li>
+            <a
+              href="{% url 'roomrates' %}"
+              style="color: var(--txttertiary); hover: var(--txtsecondary)"
+              >Room Rates</a
+            >
+          </li>
+          <li>Room Details</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Room Section -->
+<section class="room-one-section style-two">
+  {% include 'components/leaves.html' %}
+  <div class="auto-container">
+    <div class="row" style="text-align: center">
+      <div class="col-lg-12">
+        <div class="room-one-block">
+          <h4 class="room-one-title-three">Villa 2</h4>
+          <div class="room-one-content style-three mt-0">
+            <div class="room-one-rating" style="justify-content: center">
+              <div class="room-one-rating-icon">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <div class="room-one-rating-info">(4.0 Reviews)</div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <ul class="room-one-info">
+                  <li>Status: <span>Available</span></li>
+                  <li>Reservation: <strong>30%</strong></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <ul class="room-one-info">
+                  <li>
+                    <i class="fa-solid fa-bed"></i> Beddings:
+                    <strong>1 Queen Bed</strong>
+                  </li>
+                  <li>
+                    <i class="ri-group-fill"></i> Pax: <strong>2 - 3</strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="room-one-desc mt-30 mb-50">
+              This villa features a luxurious queen-size bed, a comfortable
+              sofa, and an additional pullout bed. While ideal for two guests,
+              it can comfortably accommodate up to four individuals. Please note
+              that breakfast is not included in the stay.
+            </div>
+          </div>
+          <div class="room-one-list mb-50">
+            <h4 class="room-one-title-two">Amenities</h4>
+            <div class="row">
+              <div class="col-md-12 col-sm-6">
+                <ul class="room-one-info-two">
+                  <li>
+                    <i class="fa-duotone fa-couch"></i>Sofa Bed w/ Pullout
+                  </li>
+                  <li><i class="fa-solid fa-duck"></i>En Suite Bathroom</li>
+                  <li><i class="fa-duotone fa-tv"></i>Cable / Smart TV</li>
+                  <li><i class="fa-duotone fa-snowflake"></i>Airconditioned</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div id="datePickerContainer" class="d-flex justify-content-center">
+            <div id="datePicker">
+              <div id="priceInPage">
+                <h4 class="room-one-title-two">Quotation</h4>
+                <br />
+                <h4 id="roomPrice">₱ 6,750 </h4>/per night
+                <br>
+                <br>
+                <input id="setRoomPrice" type="number" name="" value="6750" />
+              </div>
+              <form
+                id="guestForm"
+                action="page_booking_completed.html"
+                onsubmit="return(getName() && getPhone() && dateCheck())"
+                method="get"
+              >
+                <div>
+                  <label>Name:</label>
+                  <input
+                    id="inputName"
+                    type="text"
+                    name="guestName"
+                    onblur="getName()"
+                  />
+                  <em id="errorName" class="errorText"></em>
+                </div>
+                <div>
+                  <label>Phone Number:</label>
+                  <input
+                    id="inputPhone"
+                    type="text"
+                    name="guestPhone"
+                    onblur="getPhone()"
+                  />
+                  <em id="errorPhone" class="errorText"></em>
+                </div>
+                <br />
+                <div id="dateBox">
+                  <label>Dates:</label>
+                  <label for="from"></label>
+                  <input
+                    type="text"
+                    id="from"
+                    name="from"
+                    onblur="dateCheck()"
+                  />
+                  <label for="to"> to </label>
+                  <input type="text" id="to" name="to" onblur="dateCheck()" />
+                </div>
+                <em id="errorDate" class="errorText"></em>
+                <div id="priceCount"></div>
+                <button type="submit">Reserve</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="follow-area clearfix" data-aos="fade-right" data-aos-duration="3000">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="section-heading text-center">
+                <h2>Villa 2 | Sneak Peek</h2>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="instragram-feed-area owl-carousel">
+
+      <div class="single-instagram-item">
+          <img src="{% static 'media/img/rooms/Villa2/Villa1.jpg' %}" alt="">
+          <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+            <br>
+            <br>
+              <a href="#" style="font-size: 18px;">
+                <i class="fa-duotone fa-couch"></i>
+                  <span>Pullout Couch</span>
+              </a>
+          </div>
+      </div>
+
+      <div class="single-instagram-item">
+        <img src="{% static 'media/img/rooms/Villa2/Villa2.jpg' %}" alt="">
+        <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+          <br>
+          <br>
+            <a href="#" style="font-size: 18px;">
+              <i class="fa-duotone fa-chair"></i>
+                <span>Rest Area</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="single-instagram-item">
+      <img src="{% static 'media/img/rooms/Villa2/Villa3.jpg' %}" alt="">
+      <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+        <br>
+        <br>
+          <a href="#" style="font-size: 18px;">
+            <i class="fa-duotone fa-toilet"></i>
+              <span>Comfort Room</span>
+          </a>
+      </div>
+  </div>
+
+  <div class="single-instagram-item">
+    <img src="{% static 'media/img/rooms/Villa2/Villa4.jpg' %}" alt="">
+    <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+      <br>
+      <br>
+        <a href="#" style="font-size: 18px;">
+          <i class="fa-duotone fa-bed"></i>
+            <span>Queen-size Bedroom</span>
+        </a>
+    </div>
+</div>
+</section>
+
+<style>
+  #datePickerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  #dateBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    width: -webkit-fill-available;
+    flex-direction: row;
+    height: 40px;
+  }
+
+  .room-one-info {
+    background: var(--bgprimary);
+    transition: var(--transition-speed);
+    color: var(--txtprimary);
+    font-weight: 0;
+  }
+
+  .room-one-title-two {
+    text-align: center;
+    transition: var(--transition-speed);
+    color: var(--txtprimary);
+  }
+
+  .room-one-info-two li {
+    transition: var(--transition-speed);
+    color: var(--txtprimary);
+  }
+
+  .room-one-info span {
+    transition: var(--transition-speed);
+    color: var(--forest);
+  }
+
+  .room-one-info strong {
+    transition: var(--transition-speed);
+    color: var(--txtprimary);
+  }
+</style>
+{% endblock %}

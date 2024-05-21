@@ -1,0 +1,340 @@
+{% extends "components/#master.html" %} 
+{% load static %} 
+{% block title%}Lido Room Rates{% endblock title %} 
+{% block content %} 
+
+<section class="page-title-one style-two">
+  <div
+    class="page-title-one-bg"
+    data-parallax='{"y": -50}'
+    style="background-image: url(/static/media/img/rooms/function-hall2.jpg)"
+  ></div>
+  <div class="auto-container" style="background: transparent;">
+    <div class="page-title-one-content">
+      <br />
+      <br />
+      <h1 class="page-title" style="color: var(--txttertiary); font-weight: 100;">Lido Resort Rooms</h1>
+      <div class="page-title-one-desc">
+        Discover luxury at Lido Resort Rooms. Each space exudes opulence,
+        offering a haven of comfort and style. <br>Experience lavish amenities and
+        exquisite design, ensuring a stay beyond compare. Indulge in the epitome
+        of luxury and redefine your idea of relaxation
+      </div>
+      <div class="page-title-one-bread-crumb-area">
+        <ul class="page-title-one-bread-crumb">
+            <li><a href="{% url 'lido-home' %}">Home </a></li>
+            <li>Our Rooms</li>
+        </ul>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Room Section -->
+<section class="room-one-section style-two">
+  <div class="auto-container" style="background: transparent;">
+    {% include 'components/leaves.html' %}
+    <div class="row">
+      <div class="col-lg-4">
+        <form method="get" class="booking-form-widget">
+          <div class="booking-form-column">
+            <!--check in/out-->
+            <div class="booking-form-column-wrap">
+              <div id="nd_booking_open_calendar_from" class="">
+                <h4 class="nd_booking_date_label">Check-In</h4>
+                <div class="flex-box">
+                  <h1
+                    id="nd_booking_date_number_from_front"
+                    class="nd_booking_date_number_from_front" style="color: var(--black); line-height: 1.5em;"
+                  >
+                    01
+                  </h1>
+                  <h6
+                    id="nd_booking_date_month_from_front"
+                    class="nd_booking_date_month_from_front"
+                  >
+                    Jan
+                  </h6>
+                </div>
+              </div>
+              <input type="hidden" id="nd_booking_date_month_from" class="" />
+              <input type="hidden" id="nd_booking_date_number_from" class="" />
+              <input
+                placeholder="Check In"
+                class="opacity-0"
+                type="text"
+                name="form-name"
+                id="nd_booking_archive_form_date_range_from"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="booking-form-column">
+            <div class="booking-form-column-wrap">
+              <div id="nd_booking_open_calendar_to" class="">
+                <h4 class="nd_booking_date_label">Check-Out</h4>
+                <div class="flex-box">
+                  <h1
+                    id="nd_booking_date_number_to_front"
+                    class="nd_booking_date_number_from_front" style="color: var(--black); line-height: 1.5em;"
+                  >
+                    04
+                  </h1>
+                  <h6
+                    id="nd_booking_date_month_to_front"
+                    class="nd_booking_date_month_from_front"
+                  >
+                    Feb
+                  </h6>
+                </div>
+              </div>
+              <input type="hidden" id="nd_booking_date_month_to" class="" />
+              <input type="hidden" id="nd_booking_date_number_to" class="" />
+              <input
+                placeholder="Check Out"
+                class="opacity-0"
+                type="text"
+                name="form-name"
+                id="nd_booking_archive_form_date_range_to"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="booking-form-column">
+            <div
+              class="nd_booking_width_100_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box"
+            >
+              <h4 class="nd_booking_date_label">Room</h4>
+              <div class="room-opt">
+                <select>
+                  <option data-display="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                </select>
+                <span class="nd_booking_date_month_from_front">Room</span>
+              </div>
+            </div>
+          </div>
+          <div class="booking-form-column">
+            <div
+              class="nd_booking_width_100_percentage nd_booking_width_100_percentage_all_iphone nd_booking_float_left nd_booking_box_sizing_border_box"
+            >
+              <h4 class="nd_booking_date_label">Guests</h4>
+              <div class="room-opt">
+                <select>
+                  <option data-display="09">09</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                </select>
+                <span class="nd_booking_date_month_from_front">Guest</span>
+              </div>
+            </div>
+          </div>
+          <div class="booking-form-submit-btn" style="background: transparent;">
+            <br>
+            <button class="btn-one">Check Availability + <span></span></button>
+          </div>
+        </form>
+
+        <div class="services-category-one">
+          <h4 class="widget-title">Room Services</h4>
+          <ul class="services-category-onelist">
+            <li><i class="ri-thumb-up-fill"></i> Coastal View</li>
+            <li><i class="ri-thumb-up-fill"></i> Luxury Rooms</li>
+            <li><i class="ri-thumb-up-fill"></i> Seaside Pool</li>
+            <li><i class="ri-thumb-up-fill"></i> WiFi 24/7</li>
+            <li><i class="ri-thumb-up-fill"></i> Cafe Menus</li>
+            <li><i class="ri-thumb-up-fill"></i> Car Parking</li>
+            <li><i class="ri-thumb-up-fill"></i> Promo Rates</li>
+          </ul>
+        </div>
+
+        <div class="image-widget mb-30 room-one-image img_hover_3">
+          <img src="{% static 'media/img/rooms/promo-rates.jpg' %}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="row">
+
+
+          <div class="col-md-6">
+            <div class="room-one-block">
+              <div class="room-one-like"><i class="far fa-heart"></i></div>
+              <div class="room-one-image img_hover_3">
+                <img src="{% static 'media/img/rooms/Villa2/Villa-main.jpg' %}" alt="" />
+              </div>
+              <div class="room-one-content style-two">
+                <div class="room-one-info">
+                  Starting from <span>P 6,750</span> /per night
+                </div>
+                <h4 class="room-one-title">
+                  <a href="{% url 'villa2' %}">Villa 2</a>
+                </h4>
+                <div class="room-one-desc">
+                  Good for 3pax | Studio Type | Queen Size
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li>Status: <span>Available</span></li>
+                      <li>Reservation: <strong>30%</strong></li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li><i class="fa-solid fa-bed"></i><strong> Queen Size</strong></li>
+                      <li><i class="ri-group-fill"></i><strong> 2-3pax</strong></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="room-one-link-btn">
+                  <a href="{% url 'villa2' %}" class="btn-one s-four"
+                    >Book Now + <span></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          
+          <div class="col-md-6">
+            <div class="room-one-block">
+              <div class="room-one-like"><i class="far fa-heart"></i></div>
+              <div class="room-one-image img_hover_3">
+                <img src="{% static 'media/img/rooms/Villa4/Villa1.jpg' %}" alt="" />
+              </div>
+              <div class="room-one-content style-two">
+                <div class="room-one-info">
+                  Starting from <span>P 6,750</span> /per night
+                </div>
+                <h4 class="room-one-title">
+                  <a href="room-details.html">Villa 4</a>
+                </h4>
+                <div class="room-one-desc">
+                  Good for 3pax | Studio Type | Queen Size
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li>Status: <span>Available</span></li>
+                      <li>Reservation: <strong>30%</strong></li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li><i class="fa-solid fa-bed"></i><strong> Queen Size</strong></li>
+                      <li><i class="ri-group-fill"></i><strong> 2-3pax</strong></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="room-one-link-btn">
+                  <a href="{% url 'villa4' %}" class="btn-one s-four"
+                    >Book Now + <span></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-6">
+            <div class="room-one-block">
+              <div class="room-one-like"><i class="far fa-heart"></i></div>
+              <div class="room-one-image img_hover_3">
+                <img src="{% static 'media/img/rooms/Hut/Hut2.jpg' %}" alt="" />
+              </div>
+              <div class="room-one-content style-two">
+                <div class="room-one-info">
+                  Starting from <span>P 4,150</span> /per night
+                </div>
+                <h4 class="room-one-title">
+                  <a href="room-details.html">Hut</a>
+                </h4>
+                <div class="room-one-desc">
+                  Good for 2pax | Hut | Queen Size
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li>Status: <span>Available</span></li>
+                      <li>Reservation: <strong>30%</strong></li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li><i class="fa-solid fa-bed"></i><strong> Queen Size</strong></li>
+                      <li><i class="ri-group-fill"></i><strong> 2pax</strong></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="room-one-link-btn">
+                  <a href="{% url 'hut' %}" class="btn-one s-four"
+                    >Book Now + <span></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-6">
+            <div class="room-one-block">
+              <div class="room-one-like"><i class="far fa-heart"></i></div>
+              <div class="room-one-image img_hover_3">
+                <img src="{% static 'media/img/rooms/Cove5/Cove1.jpg' %}" alt="" />
+              </div>
+              <div class="room-one-content style-two">
+                <div class="room-one-info">
+                  Starting from <span>P 4,950</span> /per night
+                </div>
+                <h4 class="room-one-title">
+                  <a href="room-details.html">Cove 5</a>
+                </h4>
+                <div class="room-one-desc">
+                  Good for 2pax | Hut |
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li>Status: <span>Available</span></li>
+                      <li>Promo Rate: <strong>30%</strong></li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6">
+                    <ul class="room-one-info">
+                      <li><i class="fa-solid fa-bed"></i><strong> Queen Size</strong></li>
+                      <li><i class="ri-group-fill"></i><strong> 2pax</strong></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="room-one-link-btn">
+                  <a href="{% url 'cove5' %}" class="btn-one s-four"
+                    >Book Now + <span></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .room-one-desc {
+    color: var(--black);
+  }
+</style>
+{% endblock %}
