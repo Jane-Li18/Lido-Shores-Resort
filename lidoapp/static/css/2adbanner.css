@@ -1,0 +1,100 @@
+.adbanner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-speed);
+}
+
+.adbanner-container .adbanner {
+  background: linear-gradient(
+    90deg,
+    var(--txtsecondary) 0%,
+    var(--bgsecondary) 50%,
+    var(--txtsecondary) 100%
+  );
+  background-size: 250% auto;
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 0 5px 10px #0005;
+  overflow: hidden;
+  animation: shimmer 10s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+.adbanner-container .adbanner .left_object {
+  flex: 1 1 250px;
+  padding: 15px;
+  text-align: center;
+}
+
+.adbanner-container .adbanner .left_object img {
+  width: 100%;
+}
+
+.adbanner-container .adbanner .adcontent {
+  flex: 1 1 250px;
+  text-align: center;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.adbanner-container .adbanner .adcontent span {
+  color: var(--txtprimary);
+  font-size: 25px;
+}
+
+.adbanner-container .adbanner .adcontent h3 {
+  color: var(--txtprimary);
+  font-size: 40px;
+  font-family: "Roboto";
+}
+
+.adbanner-container .adbanner .adcontent p {
+  color: var(--txtprimary);
+  font-size: 20px;
+}
+
+.adbanner-container .adbanner .adcontent .btn {
+  display: block;
+  height: 40px;
+  width: 150px;
+  line-height: 40px;
+  background: var(--bgtertiary);
+  color: var(--txtprimary);
+  margin: 5px auto;
+  text-decoration: none;
+  transition: var(--transition-speed);
+}
+
+.adbanner-container .adbanner .adcontent a:hover {
+  transform: scale(1.09);
+}
+
+.adbanner-container .adbanner .right_object {
+  position: relative;
+  /* bottom: -33px; */
+  padding: 10px;
+  flex: 1 1 250px;
+}
+
+.adbanner-container .adbanner .right_object img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .adbanner-container .adbanner .right_object {
+    display: none;
+  }
+}

@@ -1,0 +1,255 @@
+@media only screen and (max-width: 7000px){
+	.page-wrapper{
+		overflow: hidden;
+	}
+	
+}
+
+@media only screen and (max-width: 1560px){
+	.check-availability.style-four li.date {
+		max-width: none;
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 1320px){
+
+}	
+
+@media only screen and (max-width: 1199px){
+	.banner-section .banner-slider-nav {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1139px){
+	/* Default */
+	.main-header .nav-outer .main-menu,
+	.sticky-header{
+		display: none !important;
+	}
+	.nav-outer .mobile-nav-toggler{
+		display: block;
+	}
+	header.main-header.header-style-eight,
+	header.main-header.header-style-six,
+	header.main-header.header-style-five {
+		top: 0;
+	}
+}
+
+@media only screen and (min-width: 992px){
+
+}
+
+@media only screen and (max-width: 991px){
+	.contact-form {
+		margin-bottom: 50px;
+	}
+	.service-two-section .auto-container {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.booking-form-section.style-three form {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.booking-form-section.style-three .booking-form-submit-btn {
+		padding-left: 15px;
+		padding-right: 15px;
+		justify-content: center;
+	}
+	.widget.footer-logo {
+		margin-bottom: 40px;
+	}	
+	.about-widget {
+		margin-bottom: 40px;
+	}	
+	.links-widget {
+		margin-bottom: 40px;
+	}
+	section.booking-form-section {
+		transform: translate(0);
+		margin-top: -100px;
+		margin-bottom: -90px;
+	}	
+	.booking-form-column:nth-child(even):before {
+		opacity: 0;
+	}
+	.booking-form-submit-btn {
+		margin-left: 0;
+	}
+	.col-lg-3:nth-child(even) .funfact-one:before {
+		opacity: 0;
+	}
+	.client-logo-one-image {
+		text-align: center;
+		justify-content: center;
+	}
+	.banner-section .content-box .main-slider-title {
+		font-size: 60px;
+	}
+	.service-one-block {
+		margin-top: 30px;
+	}
+	.filter-tabs.filter-btns {
+		justify-content: center;
+	}	
+	.video-section .video-image img {
+		width: 100% !important;
+	}	
+	.video-section .video-image {
+		display: block;
+	}
+	.full-container {
+		padding: 0 15px;
+	}
+	.room-one-image {
+		display: block;
+	}
+	
+	h2.cta-one-title {
+		font-size: 50px;
+	}
+	.sec-title-two {
+		font-size: 60px;
+	}
+	.video-one-image .img_hover_3 {
+		width: 100%;
+	}
+	.banner-section.s-two .content-box .main-slider-title {
+		font-size: 50px;
+	}
+	h1.sec-title-two {
+		font-size: 60px;
+	}
+	
+	h2.service-two-title-block-title {
+		font-size: 50px;
+	}
+	.full-width.auto-container {
+		padding: 0 15px;
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.main-menu .navigation > li > ul,
+	.main-menu .navigation > li > ul > li > ul{
+		display:block !important;
+		visibility:hidden;
+		opacity:0;
+	}
+}
+
+@media only screen and (max-width: 767px){	
+	br {
+		display: none;
+	}
+	.main-header .header-upper .right-column,
+	.main-header .header-upper .navbar-right {
+		display: none;
+	}
+	.header-top-wrapper-box {
+		justify-content: center;
+		padding: 20px 0;
+	}
+	.booking-form-column:nth-child(odd):before {
+		opacity: 0;
+	}
+	.booking-form-column {
+		text-align: center;
+	}	
+	.booking-form-column .flex-box {
+		justify-content: center;
+	}	
+	.booking-form-column .room-opt {
+		justify-content: center;
+		margin-bottom: 30px;
+	}
+	.col-lg-3:nth-child(odd) .funfact-one:before {
+		opacity: 0;
+	}
+	.funfact-one {
+		justify-content: center;
+	} 
+	.room-one-price-phone-number {
+		text-align: left;
+		margin-top: 20px;
+	}	
+	.room-one-price-left-side {
+		width: 100%;
+	}	
+	.room-one-price-phone-number-title {
+		text-align: left;
+	}
+}
+
+@media only screen and (max-width: 575px){
+	.page-title {
+		font-size: 50px;
+	}	
+	.funfact-one:before {
+		display: none;
+	}
+	.owl-nav-style-one .owl-nav {
+		display: none;
+	}
+	.video-btn a {
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		font-size: 18px;
+	}	
+	.video-one-slider-nav {
+		display: none;
+	}
+	h2.banner-two-title {
+		font-size: 50px;
+	}
+	form.booking-form-widget {
+		padding: 30px;
+	}
+	.news-two-content-bottom {
+		padding: 20px;
+	}	
+	blockquote {
+		padding-left: 0;
+	}	
+	.news-two-quote-icon {
+		position: relative;
+		margin-bottom: 20px;
+		top: 0;
+	}	
+	.news-comments-item {
+		padding-left: 0;
+	}	
+	.news-comments-thumb {
+		position: relative;
+		margin-bottom: 30px;
+	}
+	.contact-info-one {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.gallery-one-content {
+		padding: 20px;
+	}	
+	.gallery-one-like {
+		right: 20px;
+		top: -50px;
+	}
+}
+
+
+@media only screen and (max-width: 350px) {
+
+}
+
+
+
+
+
+
+
+
+

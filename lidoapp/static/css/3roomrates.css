@@ -1,0 +1,76 @@
+
+
+#rooms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust as needed */
+}
+
+#rooms .col-4 {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+#rooms .col-4 img {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+#rooms .col-4 a {
+  position: absolute;
+  z-index: 3;
+  background: var(--txtsecondary);
+  width: 300px;
+  height: 70px;
+  bottom: 0px;
+  font-size: 14px;
+  font-family: "Roboto";
+  letter-spacing: 2px;
+  line-height: 70px;
+  padding: 0 30px;
+  color: var(--txtprimary);
+  transition: all 0.3s;
+}
+
+#rooms .col-4 a:hover {
+  position: absolute;
+  z-index: 3;
+  background: var(--opacityprimary);
+  width: 300px;
+  height: 132px;
+  bottom: 0px;
+  font-size: 14px;
+  font-family: "Roboto";
+  letter-spacing: 2px;
+  line-height: 45px;
+  padding: 0 30px;
+  color: white;
+  /* background: linear-gradient(
+    90deg,
+    var(--txtsecondary) 0%,
+    var(--bgsecondary) 50%,
+    var(--txtsecondary) 100%
+  );
+  background-size: 250% auto;
+  animation: shimmer 10s linear infinite; */
+}
+
+#rooms .col-4 p {
+  font-size: 14px;
+  font-family: "Roboto";
+  letter-spacing: 2px;
+  line-height: 20px;
+}
+
+#rooms .col-4 .price {
+  font-size: 21px;
+  /* line-height: 50px; */
+  margin: 0;
+  width: 120px;
+  font-weight: 500;
+}

@@ -1,0 +1,373 @@
+@import url("./components/#footer.css");
+/* @import url("../3gallery.css"); */
+
+.undercontent {
+  box-shadow: var(--bgsecondary);
+  transition: var(--transition-speed);
+}
+
+/* The Section Body... Set it to max size of screen */
+section.uppercontent {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-speed);
+}
+
+/* To blend section color with sand color */
+section.uppercontent::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, var(--bgtertiary), transparent);
+  transition: var(--transition-speed);
+  z-index: 5;
+}
+
+/* Make all images absolute and cover whole screen */
+section.uppercontent img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Properites for th text on top section  */
+section.uppercontent #text span {
+  font-family: "Candide Regular", sans-serif !important;
+  font-style: normal;
+  font-size: 0.2em;
+  letter-spacing: 2px;
+  color: var(--forest);
+}
+
+section.uppercontent #text {
+  position: absolute;
+  color: var(--darkforest);
+  font-size: 5.5vw;
+  text-align: center;
+  line-height: 70px;
+  font-family: "Candide Regular", sans-serif !important;
+  font-style: normal;
+  font-weight: thin;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+/* The explore Button */
+#explore {
+  text-decoration: none;
+  /* To prevent Underline */
+  padding: 8px 25px;
+  background: white;
+  color: #003549;
+  font-size: 1.3em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  transform: translateY(100px);
+  /* To move it 100px below from center */
+  transition: var(--transition-speed);
+}
+
+#explore:hover {
+  background: var(--bgsecondary);
+  color: var(--txttertiary);
+  transition: var(--transition-speed);
+}
+
+/* Glass Effect */
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  padding: 1em;
+  margin: 0 2em;
+}
+
+/* -------------------------------------------------------------- Content Section Starts */
+.content {
+  font-family: "Candide Regular", sans-serif !important;
+  font-style: normal;
+  background-color: var(--bgprimary);
+  color: var(--txtprimary);
+  border: none;
+  text-decoration: none;
+  transition: all 0.5s linear;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+  /* padding: 10%; */
+
+  padding-bottom: 15%;
+  z-index: 1;
+  overflow: hidden;
+  transition: var(--transition-speed);
+  background: var(--bgprimary);
+}
+
+.content #showcase-social {
+  margin: 10px;
+  font-size: 2.5rem;
+  color: var(--bgsecondary);
+  text-align: center;
+}
+
+.content #showcase-social a i {
+  transition: transform 0.3s ease;
+}
+
+.content #showcase-social a:hover i {
+  color: var(--bgtertiary);
+  transform: translateY(-5px);
+  transition: var(--transition-speed);
+}
+
+.content h2 {
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.content #showcase-social a {
+  display: inline-block;
+  transition: transform 0.5s; /* Adjusted transition speed */
+}
+
+.content #showcase-social a:hover {
+  transform: translateY(-10px);
+}
+
+.content h3 {
+  color: var(--txtsecondary);
+  font-size: 1.8em;
+  margin: 2%;
+}
+
+.content h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.content p {
+  margin: 10px 20px;
+}
+
+.content ul {
+  margin: 0 5%;
+}
+
+.content ul li {
+  margin: 2%;
+}
+
+.sidebar-item a.sidebar-link {
+  color: var(--txttertiary);
+  transition: var(--transition-speed);
+}
+
+#row-content {
+  transition: var(--transition-speed);
+}
+
+#row-content th {
+  color: var(--txtprimary);
+  background: var(--bgtertiary);
+  transition: var(--transition-speed);
+}
+
+#row-content td {
+  color: var(--txtprimary);
+}
+
+/* Scroll Top Starts */
+#upscroll,
+#chatbot {
+  position: fixed;
+  bottom: -10%;
+  right: 2.5rem;
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Set the same value as the width */
+  font-size: 1.5rem;
+  background: var(--bgsecondary);
+  color: var(--txtsecondary);
+  border-radius: 50%;
+  transition: 1s linear;
+  z-index: 9999999;
+  filter: brightness(80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-speed);
+}
+
+#upscroll:hover {
+  transition: none;
+  filter: var(--hover);
+  transition: var(--transition-speed);
+}
+
+#upscroll.active {
+  bottom: 6rem;
+}
+
+#chatbot:hover {
+  transition: none;
+  filter: var(--hover);
+  transition: var(--transition-speed);
+}
+
+#chatbot.active {
+  bottom: 2rem;
+}
+
+@media only screen and (max-width: 599px) {
+  #upscroll,
+  #chatbot {
+    position: fixed;
+    font-size: 1rem;
+    bottom: -50%;
+    right: 1rem;
+    z-index: 9999999;
+    padding: 0.5rem;
+  }
+
+  #upscroll.active {
+    bottom: 6rem;
+  }
+
+  #chatbot.active {
+    bottom: 2rem;
+  }
+}
+/* -------------------------------------------------------------- Content Section Ends */
+
+/* Make all leaves image as absolute.. To overlap with background */
+.palm-border {
+  position: absolute;
+  opacity: 0.8;
+}
+
+#palm-border {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  opacity: 80%;
+}
+
+.undercontent {
+  position: absolute;
+  opacity: 40%;
+}
+
+#leaf1 {
+  top: 10%;
+  left: -5%;
+  width: 30%;
+}
+
+#leaf2 {
+  top: 35%;
+  right: -10%;
+  width: 35%;
+}
+
+#leaf3 {
+  top: 50%;
+  left: 0;
+  width: 30%;
+}
+
+#leaf4 {
+  top: 70%;
+  right: 0;
+  width: 25%;
+}
+
+/* Properties for mobile */
+@media screen and (max-width: 650px) {
+  section.uppercontent #text {
+    font-size: 20vw;
+    /* Adjust text size acc to screen size */
+  }
+
+  section.uppercontent img#bird1 {
+    object-fit: contain;
+    height: 600px;
+    width: 400px;
+  }
+
+  section.uppercontent img#bird2 {
+    object-fit: contain;
+    height: 750px;
+    width: 500px;
+  }
+
+  /* Adjust text content acc to screen size */
+  .content ul li {
+    margin: 20px;
+  }
+
+  .content ul {
+    margin: 0px 0px;
+    padding: 0;
+  }
+
+  .content h3 {
+    font-size: 1.5em;
+    margin: 20px 0px;
+  }
+
+  .content p {
+    margin: 1% 4%;
+  }
+
+  #palm-border {
+    object-fit: contain;
+    left: 0;
+    width: 750px;
+  }
+
+  .glass {
+    backdrop-filter: blur(1px);
+  }
+
+  #leaf1 {
+    top: 7%;
+    width: 40%;
+  }
+
+  #leaf2 {
+    top: 25%;
+    width: 20%;
+  }
+
+  #leaf3 {
+    top: 42%;
+    width: 25%;
+  }
+
+  #leaf4 {
+    top: 52%;
+    width: 25%;
+  }
+}

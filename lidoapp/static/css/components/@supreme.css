@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("../assets/jquery-ui-1.9.2.custom.min.css");
+@import url("../assets/jquery.fancybox.min.css");
+@import url("../assets/nice-select.css");
+@import url("./#footer.css");
+
+@font-face {
+  font-family: "Candide Regular";
+  src: url("/static/fonts/Candide-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Candide Bold";
+  src: url("/static/fonts/Candide-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Candide Medium";
+  src: url("/static/fonts/Candide-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Candide Thin";
+  src: url("/static/fonts/Candide-Thin.otf") format("opentype");
+}
+
+:root {
+  font-size: 16px;
+  --header-height: 3.5rem;
+  --transition-speed: 650ms;
+
+  --gradient-x: linear-gradient(
+    90deg,
+    hsla(0, 0%, 0%, 0),
+    hsl(210, 4%, 64%),
+    hsla(0, 0%, 0%, 0)
+  );
+  --gradient-y: linear-gradient(
+    0,
+    hsla(0, 0%, 0%, 0),
+    hsl(210, 4%, 64%),
+    hsla(0, 0%, 0%, 0)
+  );
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --font-weight-normal: 400;
+  --font-weight-semi-bold: 500;
+  --hover: brightness(80%);
+}
+
+/* -------------------------------------------------------------- Essential Code Starts */
+html {
+  scroll-behavior: smooth;
+  transition: var(--transition-speed);
+}
+
+/* * span {
+  color: var(--txttertiary);
+} */
+
+*::selection {
+  background: var(--bgsecondary); /* For Highlighting in the website*/
+  color: var(--txttertiary);
+  font-weight: var(--font-weight-normal);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none !important;
+  outline: none;
+}
+
+li,
+ul,
+ol {
+  list-style: none;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+* p {
+  font-family: "Roboto";
+  font-weight: var(--font-weight-normal);
+  color: var(--txtprimary);
+}
+
+body {
+  font-family: "Candide Regular", sans-serif !important;
+  font-style: normal;
+  background-color: var(--bgprimary);
+  color: var(--txtprimary);
+  border: none;
+  text-decoration: none;
+  transition: all 0.5s linear;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bgsecondary);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--txtsecondary);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--txtsecondary);
+}
+
+/* -------------------------------------------------------------- Color Theme Mode Section Starts */
+:root {
+  --txthover: brightness(90%);
+
+  --black: #000000;
+  --darkgray: #636363;
+  --darkestgray: #494848;
+  --gray: #909090;
+
+  --lightgray: #b4b4b4;
+  --lightestgray: #d4d4d4;
+  --white: #ffffff;
+
+  /* New Colors */
+  --palespringbud: #dce9b3; /* bgsecondary */
+  --forest: #29a133;
+  --darkforest: #034725; /* txtprimary */
+  --kiwi: #c3ff83; /* txtsecondary */
+  --white: #ffffff; /* txttertiary & bgprimary */
+
+  --darkgreen: #1a4d2e;
+  --semigreen: #4f6f52;
+  --lightgreen: #a5dd9b;
+  --floral: #e8dfca;
+
+  --gold: #e6a71f;
+  --heavygray: #292929;
+  --darkgray: #494848;
+  --granitegray: #676767;
+  --white: #ffffff;
+
+  --ivory: #fefff6;
+  --beige: #f4f2e2;
+  --pastel: #8d7968;
+  --khaki: #c1ad9b;
+  --mountbattenpink: #898c96;
+}
+
+.light {
+  --txtprimary: var(--black);
+  --txtsecondary: var(--black);
+  --txttertiary: var(--white);
+
+  --bgprimary: var(--beige);
+  --bgsecondary: var(--khaki);
+  --bgtertiary: var(--pastel);
+
+  --opacityprimary: rgba(0, 0, 0, 0.5);
+  --opacitysecondary: rgba(237, 223, 214, 0.603);
+
+  --bgtertiaryblur: hsla(37, 29%, 20%, 0.1);
+  --bgfooter: url("/static/media/img/components/wave3.png");
+}
+
+.solar {
+  --txtprimary: var(--black);
+  --txtsecondary: var(--lightgreen);
+  --txttertiary: var(--white);
+
+  --txthover: var(--lightgreen);
+
+  --bgprimary: var(--floral);
+  --bgsecondary: var(--darkgreen);
+  --bgtertiary: var(--semigreen);
+
+  --opacityprimary: rgba(0, 59, 15, 0.5);
+  --opacitysecondary: rgba(0, 59, 15, 0.5);
+
+  --bgtertiaryblur: hsla(81, 49%, 50%, 0.3);
+  --bgfooter: url("/static/media/img/components/wave1.png");
+}
+
+.dark {
+  --txtprimary: var(--white);
+  --txtsecondary: var(--kiwi);
+  --txttertiary: var(--white);
+
+  --txthover: var(--darkgray);
+
+  --bgprimary: var(--granitegray);
+  --bgsecondary: var(--heavygray);
+  --bgtertiary: var(--darkestgray);
+
+  --opacityprimary: rgba(0, 0, 0, 0.5);
+  --opacitysecondary: rgba(0, 0, 0, 0.5);
+
+  --bgtertiaryblur: hsla(202, 2%, 13%, 0.8);
+  --bgfooter: url("/static/media/img/components/wave2.png");
+}
+
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme {
+  margin-top: auto;
+  width: 100%;
+}
+
+.theme-icon {
+  display: none;
+}
+
+.dark #darkIcon {
+  display: block;
+}
+
+.light #lightIcon {
+  display: block;
+}
+
+.solar #solarIcon {
+  display: block;
+}
+
+.fa-primary {
+  color: var(--white);
+}
+
+.fa-secondary {
+  color: var(--txtprimary);
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: var(--transition-speed);
+}
+/* -------------------------------------------------------------- Color Theme Mode Section Ends */
+
+/* -------------------------------------------------------------- Navbar Section Starts */
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Adjust z-index as needed */
+  background-color: #fff; /* Adjust background color as needed */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  transition: top 0.3s; /* Optional: Add smooth transition effect */
+}
+
+.sticky-nav.sticky {
+  top: -50px; /* Adjust negative top value to hide the navbar when scrolled */
+}
+/* -------------------------------------------------------------- Navbar Section Ends */
+
