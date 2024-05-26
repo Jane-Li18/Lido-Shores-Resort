@@ -1,0 +1,188 @@
+{% extends "components/#master.html" %} 
+{% load static %} 
+{% block title %} Sign-Up | Lido Shores Resort {% endblock title %} 
+
+{% block content %}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="glass-container">
+  <div class="leaves">
+    <img
+      src="{% static 'media/img/undercontent/leaf1.png' %}"
+      id="leaf1"
+      class="undercontent"
+    />
+    <img
+      src="{% static 'media/img/undercontent/leaf2.png' %}"
+      id="leaf2"
+      class="undercontent"
+    />
+    <img
+      src="{% static 'media/img/undercontent/leaf3.png' %}"
+      id="leaf3"
+      class="undercontent"
+    />
+    <img
+      src="{% static 'media/img/undercontent/leaf4.png' %}"
+      id="leaf4"
+      class="undercontent"
+    />
+</div>
+
+    <div class="glass">
+    <div class="form-content my-3 p-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <p class="text-center">Join us and be part of Lido experience -- and it's free!</p>
+            <div class="card shadow-lg border-0 rounded-lg mt-0 mb-5">
+              <div class="card-header justify-content-center">
+                <h3 class="font-weight-light my-4 text-center">
+                  Create Account
+                </h3>
+              </div>
+              <div class="card-body">
+                <form method="POST">
+                  {% csrf_token %} {% if form.errors %}
+                  <div
+                    class="alert alert-danger alert-dismissible"
+                    role="alert"
+                  >
+                    <div id="form_errors">
+                      {% for key, value in form.errors.items %}
+                      <strong>{{ value }}</strong>
+                      {% endfor %}
+                    </div>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  {% endif %}
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="small mb-1">First Name</label>
+                        {{ form.first_name }}
+                      </div>
+                      <div class="form-group">
+                        <label class="small mb-1">Last Name</label>
+                        {{ form.last_name }}
+                      </div>
+                      <div class="form-group">
+                        <label class="small mb-1">Email</label>
+                        {{ form.email }}
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="small mb-1">Username</label>
+                        {{ form.username }}
+                      </div>
+                      <div class="form-group">
+                        <label class="small mb-1">Password</label>
+                        {{ form.password1 }} {{ form.errors.password }}
+                      </div>
+                      <div class="form-group">
+                        <label class="small mb-1">Confirm Password</label>
+                        {{ form.password2 }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4 mb-0">
+                    <button type="submit" class="col-md-12 btn btn-dark">
+                      Sign Up</button
+                    ><br /><br />
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer text-center">
+                <div class="small">
+                  <a href="{% url 'login' %}">Have an account? Go to Sign in</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  h3 {
+    color: var(--txttertiary);
+    transition: var(--transition-speed);
+  }
+
+  .card-body {
+    border-radius: 0%;
+  }
+
+  .small a {
+    transition: color var(--transition-speed);
+  }
+
+  .small a:hover {
+    color: var(--txtsecondary);
+    transition: var(--transition-speed);
+  }
+
+  .glass-container {
+    position: relative;
+  }
+
+  #leaf1 {
+    top: -20%;
+    left: -5%;
+    width: 30%;
+  }
+
+  #leaf2 {
+    top: 5%;
+    right: -5%;
+    width: 35%;
+  }
+
+  #leaf3 {
+    top: 70%;
+    left: 5%;
+    width: 30%;
+  }
+
+  #leaf4 {
+    top: 70%;
+    right: 0%;
+    width: 25%;
+  }
+
+  #form_errors {
+      width: 100%;
+      max-width: 1500px;
+      z-index: 1050;
+      margin: 0px;
+      padding: 20px 50px;
+    }
+
+  button{
+      border: none;
+      color: var(--txttertiary);
+      background: var(--bgsecondary);
+      transition: var(--transition-speed);
+    }
+
+    .alert .alert-danger{
+      padding: 20px 100px;
+      margin: 0px;
+    }
+</style>
+{% endblock content %}

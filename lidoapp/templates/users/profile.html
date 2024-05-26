@@ -1,0 +1,191 @@
+{% extends "components/#master.html" %} 
+{% load static %} 
+{% block title %} Profile | Lido Shores Resort {% endblock title %} 
+
+{% block content %}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="glass-container">
+  <div class="leaves">
+    <img src="{% static 'media/img/undercontent/leaf1.png' %}" id="leaf1" class="undercontent" />
+    <img src="{% static 'media/img/undercontent/leaf2.png' %}" id="leaf2" class="undercontent" />
+    <img src="{% static 'media/img/undercontent/leaf3.png' %}" id="leaf3" class="undercontent" />
+    <img src="{% static 'media/img/undercontent/leaf4.png' %}" id="leaf4" class="undercontent" />
+  </div>
+
+  <div class="glass">
+    <div class="row my-3 p-3 justify-content-center">
+      <div class="account-img">
+        <img src="{{ user.profile.avatar.url }}" alt="Avatar" />
+      </div>
+    </div>
+    {% if user_form.errors %}
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <div id="form_errors">
+          {% for key, value in user_form.errors.items %}
+          <strong>{{ value }}</strong>
+          {% endfor %}
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endif %}
+    <div class="form-content">
+      <form method="post" enctype="multipart/form-data" class="d-flex flex-column align-items-center">
+        {% csrf_token %}
+        <div class="form-row justify-content-center">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="small mb-1">Username:</label>
+              {{ user_form.username }}
+            </div>
+            <div class="form-group">
+              <label class="small mb-1">Email:</label>
+              {{ user_form.email }}
+            </div>
+            <br>
+            <div class="form-group">
+              <a href="{% url 'password_change' %}">Change Password</a>
+              <hr>
+              <label class="small mb-1">Change Avatar:</label>
+              {{ profile_form.avatar }}
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="small mb-1">Bio:</label>
+              {{ profile_form.bio }}
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-center">
+          <button type="submit" class="btn btn-dark btn-lg mx-2">Save Changes</button>
+          <button type="reset" class="btn btn-dark btn-lg mx-2">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  h3 {
+    color: var(--txttertiary);
+    transition: var(--transition-speed);
+  }
+
+  .card-body {
+    border-radius: 0%;
+  }
+
+  .form-group a {
+    transition: color var(--transition-speed);
+  }
+
+  .form-group a:hover {
+    color: var(--txtsecondary);
+    transition: var(--transition-speed);
+  }
+
+  .undercontent {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .glass-container {
+    position: relative;
+
+  }
+
+  .glass {
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #leaf1 {
+    top: -20%;
+    left: 5%;
+    width: 30%;
+  }
+
+  #leaf2 {
+    top: -10%;
+    right: 10%;
+    width: 35%;
+  }
+
+  #leaf3 {
+    top: 40%;
+    left: -5%;
+    width: 30%;
+  }
+
+  #leaf4 {
+    top: 30%;
+    right: 0%;
+    width: 25%;
+  }
+
+  #form_errors {
+    width: 100%;
+    max-width: 1500px;
+    z-index: 1050;
+    margin: 0px;
+    padding: 20px 50px;
+  }
+
+  button {
+    border: none;
+    color: var(--txttertiary);
+    background: var(--bgsecondary);
+    transition: var(--transition-speed);
+  }
+
+  .alert .alert-danger {
+    padding: 20px 100px;
+    margin: 0px;
+  }
+
+  .account-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--txttertiary);
+  }
+
+  .account-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .form-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-group {
+    text-align: center;
+  }
+
+  .text-center button {
+    margin: 5px;
+  }
+</style>
+{% endblock content %}

@@ -1,0 +1,183 @@
+{% extends "components/#master.html" %} 
+{% load static %}
+{% block title %} Sign-In | Lido Shores Resort {% endblock title %} 
+
+{% block content %}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="glass-container">
+  <div class="leaves">
+    <img src="{% static 'media/img/undercontent/leaf1.png' %}" id="leaf1" class="undercontent" />
+    <img src="{% static 'media/img/undercontent/leaf2.png' %}" id="leaf2" class="undercontent" />
+    <img src="{% static 'media/img/undercontent/leaf3.png' %}" id="leaf3" class="undercontent" />
+    <img src="{% static 'media/img/undercontent/leaf4.png' %}" id="leaf4" class="undercontent" />
+</div>
+
+    <div class="glass">
+    <div class="form-content my-3 p-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <p class="text-center">Treat yourself by booking with us!</p>
+            <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3">
+              <div class="card-header justify-content-center">
+                <h3 class="font-weight-light my-1 text-center">Sign In</h3>
+              </div>
+              <div class="card-body">
+                {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                    <strong>{{ value }}</strong>
+                    {% endfor %}
+                  </div>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %}
+                <form method="POST">
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                      <div class="form-group">
+                        <label class="small mb-1">Username</label>
+                        {{ form.username }}
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                      <div class="form-group">
+                        <label class="small mb-1">Password</label>
+                        {{ form.password }}
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                      <div class="form-group">
+                        <!-- Add a Remember me functionality -->
+                        {{ form.remember_me }}
+                        <label> Remember me</label>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                      <div class="form-group mt-0 mb-1">
+                        <button name="login" class="col-md-12 btn btn-dark" id="login">
+                          Sign in
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-10 offset-md-1">
+                      <div class="form-group mt-0 mb-1">
+                        <a href="{% url 'lido-home' %}" class="col-md-12 btn btn-dark" id="guest-login">
+                          <i class="ri-user-star-line"></i> &nbspGuest Login
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer text-center">
+                <div class="small">
+                  <a href="{% url 'users-register' %}">Don't have an account yet? Go to signup</a><br />
+                  <a href="{% url 'password_reset' %}"><i>Forgot Password?</i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<style>
+  h3 {
+    color: var(--txttertiary);
+    transition: var(--transition-speed);
+  }
+
+  .card-body {
+    border-radius: 0%;
+  }
+
+  .small a {
+    transition: color var(--transition-speed);
+  }
+
+  .small a:hover {
+    color: var(--txtsecondary);
+    transition: var(--transition-speed);
+  }
+
+  .glass-container {
+    position: relative;
+  }
+
+  #leaf1 {
+    top: -20%;
+    left: -5%;
+    width: 30%;
+  }
+
+  #leaf2 {
+    top: 5%;
+    right: -5%;
+    width: 35%;
+  }
+
+  #leaf3 {
+    top: 70%;
+    left: 5%;
+    width: 30%;
+  }
+
+  #leaf4 {
+    top: 70%;
+    right: 0%;
+    width: 25%;
+  }
+
+  .alert-success:not(.alert-outline):not(.alert-outline-coloured) {
+    background: var(--bgsecondary);
+    color: var(--txttertiary);
+    transition: var(--transition-speed);
+    border-radius: 0%;
+  }
+
+  .alert .alert-danger {
+    padding: 20px 100px;
+    margin: 0px;
+  }
+
+  button,
+  a.btn {
+    border: none;
+    color: var(--txttertiary);
+    background: var(--bgsecondary);
+    transition: var(--transition-speed);
+  }
+
+  #form_errors {
+    width: 100%;
+    max-width: 1500px;
+    z-index: 1050;
+    margin: 0px;
+    padding: 20px 50px;
+  }
+</style>
+{% endblock content %}
