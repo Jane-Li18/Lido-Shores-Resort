@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,60 +9,46 @@
     <title>{% block title %}{% endblock %}</title>
 
     {% comment %} Website Icon Link {% endcomment %}
-    <link
-      rel="icon"
-      type="image/png"
-      href="{% static 'media/img/components/Logo.png' %}"
-    />
+    <link rel="icon" type="image/png" href="{% static 'media/img/components/Logo.png' %}" />
 
     {% comment %} Remixicons Link {% endcomment %}
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
-      crossorigin=""
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" crossorigin="" />
 
     {% comment %} Bootstrap Link {% endcomment %}
     <link href="{% static 'css/assets/bootstrap.css' %}" rel="stylesheet" />
 
     {% comment %} FontAwesome Pro Link {% endcomment %}
-    <link
-      href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.2-web/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {% comment %} External CSS {% endcomment %}
     <link href="{% static 'css/components/@supreme.css' %}" rel="stylesheet" />
     <link href="{% static 'css/components/#content.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/components/style.css' %}" rel="stylesheet" />
-
+    <link href="{% static 'css/components/allstyle.css' %}" rel="stylesheet" />
     <link href="{% static 'css/3-2gallery.css' %}" rel="stylesheet" />
     <link href="{% static 'css/assets/magnific-popup.css' %}" rel="stylesheet" />
-
     <link href="{% static 'css/assets/owl.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/assets/responsiveness.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/assets/responsive.css' %}" rel="stylesheet" />
     <link href="{% static 'css/assets/rtl.css' %}" rel="stylesheet" />
     <link href="{% static 'css/assets/nice-select.css' %}" rel="stylesheet" />
     <link href="{% static 'css/assets/elpath.css' %}" rel="stylesheet" />
     <link href="{% static 'css/assets/jquery.fancybox.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/assets/jquery-ui-1.9.2.custom.min.css' %}" rel="stylesheet" />
-
     <link href="{% static 'css/components/#footer.css' %}" rel="stylesheet" />
   </head>
 
   <body>
-    
+
+
     <div class="wrapper">
       {% include "components/#sidebar.html" %}
 
       <div class="main" style="z-index: 1">
-        {% include "components/#header.html" %}
 
+        {% include "components/#header.html" %}
         {% block content %} 
         {% endblock content %} 
 
         {% include "components/#footer.html" %}
-
       </div>
 
       {% comment %} Scroll Top Button {% endcomment %}
@@ -77,7 +62,6 @@
   <script src="{% static 'js/components/@content.js' %}"></script>
   <script src="{% static 'js/assets/app.js' %}"></script>
   <script src="{% static 'js/#roomrates.js' %}"></script>
-
   <script src="{% static 'js/assets/jquery.js' %}"></script>
   <script src="{% static 'js/assets/jquery-ui-1.9.2.custom.min.js '%}"></script>
   <script src="{% static 'js/assets/booking-form.js' %}"></script>
@@ -91,10 +75,16 @@
   <script src="{% static 'js/assets/appear.js' %}"></script>
   <script src="{% static 'js/assets/swiper.min.js' %}"></script>
   <script src="{% static 'js/assets/script.js' %}"></script>
-
-  <script src="{% static 'js/assets/popper.js' %}"></script>
   <script src="{% static 'js/assets/lxbundle.js' %}"></script>
   <script src="{% static 'js/assets/active.js' %}"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- A plugin for password show/hide  -->
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
 
   <script>
     $(document).ready(function() {

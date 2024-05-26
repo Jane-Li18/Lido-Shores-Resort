@@ -1,29 +1,88 @@
 {% load static %}
 <section class="uppercontent">
-    <img
-      src="{% static 'media/img/uppercontent/sky.png' %}"
-      id="sky"
-      class="wallpaper"
-    />
+  <!-- Flash Messages -->
+  <div class="container flash-messages" style="padding: 0">
+    {% if messages %}
+    <div class="alert alert-dismissible" role="alert" style="margin-bottom: 0px;">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
+  </div>
   
-    <h2 id="text">
-      <span>Immerse Yourself in the Wonder of</span><br />Lido Shores
-    </h2>
-    <img src="{% static 'media/img/uppercontent/beach.png' %}" id="beach" />
-    <img src="{% static 'media/img/uppercontent/bird1.png' %}" id="bird1" />
-    <img src="{% static 'media/img/uppercontent/bird2.png' %}" id="bird2" />
-    <a href="#sec" id="explore">E X P L O R E</a>
-    <img
-      src="{% static 'media/img/uppercontent/rocks.png' %}"
-      id="rocks"
-      style="z-index: 1"
-    />
-    <img
-      src="{% static 'media/img/uppercontent/sand.png' %}"
-      id="sand"
-      style="z-index: 1"
-    />
-    <img src="{% static 'media/img/uppercontent/tree1.png' %}" id="tree1" />
-    <img src="{% static 'media/img/uppercontent/tree2.png' %}" id="tree2" />
+  <img
+    src="{% static 'media/img/uppercontent/sky.png' %}"
+    id="sky"
+    class="wallpaper"
+  />
+
+  <h2 id="text">
+    <span>Immerse Yourself in the Wonder of</span><br />Lido Shores
+  </h2>
+  <img src="{% static 'media/img/uppercontent/beach.png' %}" id="beach" />
+  <img src="{% static 'media/img/uppercontent/bird1.png' %}" id="bird1" />
+  <img src="{% static 'media/img/uppercontent/bird2.png' %}" id="bird2" />
+  <a href="#sec" id="explore">E X P L O R E</a>
+  <img
+    src="{% static 'media/img/uppercontent/rocks.png' %}"
+    id="rocks"
+    style="z-index: 1"
+  />
+  <img
+    src="{% static 'media/img/uppercontent/sand.png' %}"
+    id="sand"
+    style="z-index: 1"
+  />
+  <img src="{% static 'media/img/uppercontent/tree1.png' %}" id="tree1" />
+  <img src="{% static 'media/img/uppercontent/tree2.png' %}" id="tree2" />
+</section>
+
+<style>
+  .alert-success:not(.alert-outline):not(.alert-outline-coloured) {
+    background: var(--bgsecondary);
+    color: var(--txttertiary);
+    transition: var(--transition-speed);
+    border-radius: 0%;
+  }
+
+  .alert .alert-success{
+    padding: 20px 100px; 
+    margin: 0px;
+  }
+
+  button{
+    border: none; 
+    color: var(--txttertiary); 
+    background: var(--bgsecondary);
+    transition: var(--transition-speed);
+  }
+
+  .flash-messages {
+    position: fixed;
+    top: 15%;
+    right: -15%;
+    transform: translateX(-50%);
+    width: 30%;
+    max-width: 600px;
+    z-index: 1050;
+    margin: 0px;
+  }
   
-  </section>
+  @media (max-width: 768px) {
+    .flash-messages {
+      width: 90%;
+      left: 50%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .flash-messages {
+      width: 95%;
+      left: 50%;
+    }
+  }
+</style>

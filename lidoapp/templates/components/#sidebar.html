@@ -1,5 +1,5 @@
 {% load static %}
-<nav id="sidebar" class="sidebar js-sidebar">
+<nav id="sidebar" class="sidebar js-sidebar" style="z-index: 999;">
   <div class="sidebar-content js-simplebar" data-simplebar="init">
     <div class="simplebar-wrapper" style="margin: 0px">
       <div class="simplebar-height-auto-observer-wrapper">
@@ -17,12 +17,13 @@
             <div class="simplebar-content" style="padding: 500px">
               <ul class="sidebar-nav">
                 <li class="sidebar-header">
-                  <a href="{% url 'lido-home' %}"
-                    ><img
+                  <a href="{% url 'lido-home' %}">
+                    <img
                       src="{% static 'media/img/components/logo_full.png' %}"
                       alt="logo"
                       class="w-100"
-                  /></a>
+                    />
+                  </a>
                 </li>
 
                 <li class="sidebar-header">General</li>
@@ -64,6 +65,7 @@
                   </a>
                 </li>
 
+                {% if user.is_authenticated %}
                 <li class="sidebar-header">Library</li>
 
                 <li class="sidebar-item">
@@ -79,6 +81,7 @@
                     <span class="align-middle">Favorites</span>
                   </a>
                 </li>
+                {% endif %}
 
                 <li class="sidebar-header">Settings</li>
 
@@ -120,93 +123,88 @@
               </ul>
 
               <div class="sidebar-user">
-                <div class="d-flex justify-content-center">
-                  <div class="flex-shrink-0">
-                    <img
-                      src="{% static 'media/img/components/default-guest-active.png' %}"
-                      class="avatar img-fluid rounded me-1"
-                      alt="Guest"
-                    />
-                  </div>
-                  <div class="flex-grow-1 ps-2">
+                <div class="d-flex justify-content-center align-items-center">
+                  <div class="dropdown">
                     <a
-                      class="sidebar-user-title dropdown-toggle"
+                      class="dropdown-toggle d-flex align-items-center"
                       href="#"
                       data-bs-toggle="dropdown"
+                      aria-expanded="false"
                     >
-                      SLee Jabonillo
+                      {% if user.is_authenticated %}
+                        {% if user.profile.avatar.url %}
+                          <img
+                            class="rounded-circle account-img"
+                            src="{{ user.profile.avatar.url }}"
+                            style="
+                              cursor: pointer;
+                              width: 50px;
+                              height: 50px;
+                              object-fit: cover;
+                              border: 2px solid var(--txttertiary);
+                            "
+                          />
+                        {% else %}
+                          <img
+                            src="{% static 'media/img/components/default-guest-active.png' %}"
+                            class="avatar img-fluid rounded me-1"
+                            alt="Guest"
+                            style="width: 50px; height: 50px;"
+                          />
+                        {% endif %}
+                      {% else %}
+                        <img
+                          src="{% static 'media/img/components/default-guest-inactive.png' %}"
+                          class="avatar img-fluid rounded me-1"
+                          alt="Guest"
+                          style="width: 50px; height: 50px;"
+                        />
+                      {% endif %}
+                      <div class="flex-grow-1 ps-2">
+                        <h1 class="" style="font-size: 18px; color: var(--txttertiary);">
+                          Welcome, {{ user.username|title|default:"Guest" }}<i class="ri-arrow-drop-down-line"></i>
+                        </h1>
+                        {{ user.email|default:"" }}
+                      </div>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-start">
-                      <a class="dropdown-item" href="#"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="feather feather-user align-middle me-1"
-                        >
-                          <path
-                            d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                          ></path>
-                          <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        Profile</a
-                      >
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="feather feather-settings align-middle me-1"
-                        >
-                          <circle cx="12" cy="12" r="3"></circle>
-                          <path
-                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                          ></path>
-                        </svg>
-                        Settings &amp; Privacy</a
-                      >
-                      <a class="dropdown-item" href="#"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="feather feather-help-circle align-middle me-1"
-                        >
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                          <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                        </svg>
-                        Help Center</a
-                      >
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="{% url 'login' %}">Log out</a>
-                    </div>
-
-                    <div class="sidebar-user-subtitle">
-                      shanelee.jabonillo@gmail.com
-                    </div>
+                    {% if user.is_authenticated %}
+                      <div class="dropdown-menu dropdown-menu-start">
+                        <a class="dropdown-item" href="{% url 'users-profile' %}">
+                          <i class="ri-user-line"></i>
+                          &nbspProfile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                          <i class="fa-solid fa-wrench"></i> 
+                          &nbsp Settings &amp; Privacy
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i class="ri-questionnaire-line"></i>
+                          &nbspHelp Center
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'logout' %}">
+                          <i class="ri-logout-box-line"></i>
+                          &nbspLog out
+                        </a>
+                      </div>
+                    {% else %}
+                      <div class="jumbotron"  style="padding-left: 50px">
+                        <div class="flex-grow-1 ps-2 mt-0" style="text-align: center">
+                          <a
+                            class="btn btn-primary btn-lg px-5 mt-0"
+                            href="{% url 'login' %}"
+                            role="button"
+                          >
+                            Sign in
+                          </a>
+                        </div>
+                      </div>
+                    {% endif %}
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
