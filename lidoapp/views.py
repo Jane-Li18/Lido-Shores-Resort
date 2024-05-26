@@ -1,10 +1,121 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.contrib.auth import logout 
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordChangeView
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views import View
+from django.contrib.auth.decorators import login_required
+
+from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
+
+
+def home(request):
+    return render(request, '@main.html')
+
+class LogoutView(View):
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        messages.success(request, "You have successfully logged out.")
+        return render(request, '@main.html')
+
+
+class RegisterView(View):
+    form_class = RegisterForm
+    initial = {'key': 'value'}
+    template_name = 'users/register.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        # will redirect to the home page if a user tries to access the register page while logged in
+        if request.user.is_authenticated:
+            return redirect(to='/')
+
+        # else process dispatch as it otherwise normally would
+        return super(RegisterView, self).dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}')
+
+            return redirect(to='login')
+
+        return render(request, self.template_name, {'form': form})
+
+
+# Class based view that extends from the built in login view to add a remember me functionality
+class CustomLoginView(LoginView):
+    form_class = LoginForm
+
+    def form_valid(self, form):
+        remember_me = form.cleaned_data.get('remember_me')
+
+        if not remember_me:
+            # set session expiry to 0 seconds. So it will automatically close the session after the browser is closed.
+            self.request.session.set_expiry(0)
+
+            # Set session as modified to force data updates/cookie to be saved.
+            self.request.session.modified = True
+
+        # else browser session will be as long as the session cookie time "SESSION_COOKIE_AGE" defined in settings.py
+        return super(CustomLoginView, self).form_valid(form)
+
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'users/password_reset.html'
+    email_template_name = 'users/password_reset_email.html'
+    subject_template_name = 'users/password_reset_subject'
+    success_message = "We've emailed you instructions for setting your password, " \
+                      "if an account exists with the email you entered. You should receive them shortly." \
+                      " If you don't receive an email, " \
+                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_url = reverse_lazy('lido-home')
+
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'users/change_password.html'
+    success_message = "Successfully Changed Your Password"
+    success_url = reverse_lazy('lido-home')
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile is updated successfully')
+            return redirect(to='lido-home')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
 
 def main(request):
     return render(request, "@main.html")
 
-def login(request):
-    return render(request, "components/login.html")
+def sign_in(request):
+    return render(request, "components/sign-in.html")
+
+def sign_up(request):
+    return render(request, "components/sign-up.html")
+
+def userupdate(request):
+    return render(request, "users/#user-update.html")
 
 
 # Lido Shores Rooms
@@ -27,165 +138,4 @@ def cove5(request):
 # Lido Shores Galleries
 def gallery(request):
     return render(request, "3-2gallery.html")
-
-
-
-
-
-from django.http import HttpResponse
-from django.shortcuts import render,redirect
-from .models import Cart, Message, Order, Product, User, Hotel, Reservation, Rooms
-
-def home_page(request):
-	return render(request, 'home.html')
-
-def about_page(request):
-	return render(request, 'about.html')
-
-def login_page(request):
-	return HttpResponse("log in")
-
-def cart(request):
-    if request.method == 'POST':
-        # Assuming you get these values from the POST request
-        user_id = request.POST.get('user_id')
-        pid = request.POST.get('pid')
-        name = request.POST.get('name')
-        price = request.POST.get('price')
-        quantity = request.POST.get('quantity')
-        image = request.POST.get('image')
-        
-        # Create a new Cart object and save it to the database
-        cart_item = Cart(user_id=user_id, pid=pid, name=name, price=price, quantity=quantity, image=image)
-        cart_item.save()
-        
-        # Redirect to cart page or any other page
-        return redirect('cart_page')
-    else:
-        # Handle GET request (if needed)
-        pass
-
-def view_cart(request):
-    # Retrieve all cart items
-    cart_items = Cart.objects.all()
     
-    # Pass cart_items to the template for rendering
-    return render(request, 'cart.html', {'cart_items': cart_items})
-
-def message(request):
-    if request.method == 'POST':
-        # Get data from the POST request
-        user_id = request.POST.get('user_id')
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        number = request.POST.get('number')
-        message_content = request.POST.get('message')
-        
-        # Create a new Message object and save it to the database
-        message = Message(user_id=user_id, name=name, email=email, number=number, message=message_content)
-        message.save()
-        
-        # Redirect to a success page or do something else
-        return redirect('success_page')
-    else:
-        # Handle GET request (if needed)
-        return render(request, 'message_form.html')
-
-def place_order(request):
-    if request.method == 'POST':
-        # Get data from the POST request
-        user_id = request.POST.get('user_id')
-        name = request.POST.get('name')
-        number = request.POST.get('number')
-        email = request.POST.get('email')
-        method = request.POST.get('method')
-        address = request.POST.get('address')
-        total_products = request.POST.get('total_products')
-        total_price = request.POST.get('total_price')
-        placed_on = request.POST.get('placed_on')
-        payment_status = request.POST.get('payment_status', 'pending')  # Default value if not provided
-        
-        # Create a new Order object and save it to the database
-        order = Order(user_id=user_id, name=name, number=number, email=email, method=method,
-                      address=address, total_products=total_products, total_price=total_price,
-                      placed_on=placed_on, payment_status=payment_status)
-        order.save()
-        
-        # Redirect to a success page or do something else
-        return redirect('success_page')
-    else:
-        # Handle GET request (if needed)
-        return render(request, 'order_form.html')
-
-def view_orders(request):
-    # Retrieve all orders
-    orders = Order.objects.all()
-    
-    # Pass orders to the template for rendering
-    return render(request, 'orders.html', {'orders': orders})
-
-def view_products(request):
-    # Retrieve all products
-    products = Product.objects.all()
-    
-    # Pass products to the template for rendering
-    return render(request, 'products.html', {'products': products})
-
-def view_products_by_category(request, category):
-    # Retrieve products filtered by category
-    products = Product.objects.filter(category=category)
-    
-    # Pass products to the template for rendering
-    return render(request, 'products.html', {'products': products})
-
-def register_user(request):
-    if request.method == 'POST':
-        # Assuming you get these values from the POST request
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        user_type = request.POST.get('user_type', 'user')  # Default value if not provided
-        image = request.POST.get('image')
-        
-        # Create a new User object and save it to the database
-        user = User(name=name, email=email, password=password, user_type=user_type, image=image)
-        user.save()
-        
-        # Redirect to login page or any other page
-        return redirect('login_page')
-    else:
-        # Handle GET request (if needed)
-        pass
-
-def get_user_by_email(email):
-    try:
-        user = User.objects.get(email=email)
-        return user
-    except User.DoesNotExist:
-        return None
-
-def get_hotel(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        host = request.POST.get('host')
-        rating = request.POST.get('rating')
-        review = request.POST.get('review')
-        adress = request.POST.get('adress')
-        facilities = request.POST.get('facilities')
-
-def get_reservation(request):
-    if request.method == 'POST':
-        check_in = request.POST.get('check_in')
-        check_out = request.POST.get('check_out')
-        room = request.POST.get('room')
-        guest = request.POST.get('guest')
-        price = request.POST.get('price')
-
-def get_rooms(request):
-    if request.method == 'POST':
-        room_type = request.POST.get('room_type')
-        capacity = request.POST.get('capacity')
-        price = request.POST.get('price')
-        size = request.POST.get('size')
-        hotel = request.POST.get('hotel')
-        status = request.POST.get('status')
